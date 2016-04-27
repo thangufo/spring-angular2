@@ -6,21 +6,33 @@
     <!-- 1. Load libraries -->
     <!-- IE required polyfill -->
     <!-- build:js js/vendor.js -->
-    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
-    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.umd.js"></script>
-    <script src="node_modules/angular2/bundles/angular2-all.umd.js"></script>
+    <script src="app/node_modules/es6-shim/es6-shim.js"></script>
+    <script src="app/node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="app/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="app/node_modules/rxjs/bundles/Rx.umd.js"></script>
+    <script src="app/node_modules/angular2/bundles/angular2-all.umd.js"></script>
     <!-- endbuild -->
 
-    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="app/node_modules/bootstrap/dist/css/bootstrap.css">
 
 </head>
 
 <!-- 3. Display the application -->
 <body>
-<my-app>Loading...</my-app>
+<script>
+    System.config({
+        packages: {
+            app: {
+                format: 'register',
+                defaultExtension: 'js'
+            }
+        }
+    });
+    System.import('app/app.js')
+            .then(null, console.error.bind(console));
+</script>
+
+<my-app>Loading 12443...</my-app>
 </body>
 
 </html>
