@@ -1,0 +1,13 @@
+<form #f="ngForm"
+      (ngSubmit)="onSubmit(f.value)"
+      class="ui form">
+
+    <div class="field">
+        <label for="messageInput">Message</label>
+        <input type="text"
+               id="messageInput"
+               ngControl="message">
+    </div>
+
+    <button type="submit" class="ui button">Submit</button>
+</form>
